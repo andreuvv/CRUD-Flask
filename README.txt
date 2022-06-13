@@ -2,7 +2,7 @@ Para probar funcionamiento del CRUD se necesita:
 
 Crear una base de datos con MySQL.
 
-Crear un archivo .env y rellenar con siguientes campos.
+Crear un archivo .env en root del proyecto y rellenar con siguientes campos.
 MYSQL_USER = 
 MYSQL_PASSWORD = 
 MYSQL_HOST = 
