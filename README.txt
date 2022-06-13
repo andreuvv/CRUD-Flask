@@ -2,7 +2,12 @@ Para probar funcionamiento del CRUD se necesita:
 
 Crear una base de datos con MySQL.
 
-Ir al archivo .env y cambiar la configuración hacia la nueva BD creada.
+Crear un archivo .env y rellenar con siguientes campos.
+MYSQL_USER = 
+MYSQL_PASSWORD = 
+MYSQL_HOST = 
+MYSQL_PORT = 
+MYSQL_DATABASE = 
 
 Iniciar un Virtual Enviroment de python.
 
