@@ -1,0 +1,50 @@
+{% extends 'layout.html' %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<div class="alert alert-success">
+    {{ message }}
+</div>
+{% endfor %} {% endif %} {% endwith %}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="">
+            <form action='/newcurso' method="POST" class="card bg-dark text-light">
+                <div class="card-header">
+                    <h4>Agregar nuevo curso</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <label for="clase">Nombre de curso:</label>
+                        <input type='text' name='clase' style="text-transform:capitalize;" placeholder='Escribir nombre de curso' class="form-control rounded-0 border-0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dia">Dia de curso:</label>
+                        <input type='text' name='dia' placeholder='Escribir dia de curso' class="form-control rounded-0 border-0">
+                    </div>
+                    <button class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h4 class="card-body p-2 bg-dark text-white rounded-2">Lista de cursos</h4>
+        <div>
+            {% for curso in cursos %}
+
+            <div class="card mb-1 text-white bg-dark">
+                <div class="card-body">
+                    <h5>Clase: {{ curso.clase }}</h5>
+                    <p>Dia: {{ curso.dia }}</p>
+
+                    <div class="d-flex justify-content-between">
+                        <a href='/updatecurso/{{ curso.id }}' class="btn btn-secondary btn-sm">Editar</a>
+                        <a href='/deletecurso/{{ curso.id }}' class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

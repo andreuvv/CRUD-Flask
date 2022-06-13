@@ -1,0 +1,20 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="">
+    <form action='/updatecurso/{{curso.id}}' method="POST" class="card bg-dark text-light">
+        <div class="card-header">
+            <h4>Actualizar contacto</h4>
+        </div>
+        <div class="card-body p-4">
+            <div class="mb-3">
+                <label for="clase">Nombre de contacto:</label>
+                <input type='text' name='clase' placeholder='Escribir nombre' value="{{curso.clase}}" class="form-control rounded-0 border-0">
+            </div>
+            <div class="mb-3">
+                <label for="dia">Email de contacto:</label>
+                <input type='text' name='dia' placeholder='Escribir email' value="{{curso.dia}}" class="form-control rounded-0 border-0">
+            </div>
+            <button class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="">
+    <form action='/update/{{contacto.id}}' method="POST" class="card bg-dark text-light">
+        <div class="card-header">
+            <h4>Actualizar contacto</h4>
+        </div>
+        <div class="card-body p-4">
+            <div class="mb-3">
+                <label for="nombre">Nombre de contacto:</label>
+                <input type='text' name='nombre' placeholder='Escribir nombre' value="{{contacto.nombre}}" class="form-control rounded-0 border-0">
+            </div>
+            <div class="mb-3">
+                <label for="email">Email de contacto:</label>
+                <input type='text' name='email' placeholder='Escribir email' value="{{contacto.email}}" class="form-control rounded-0 border-0">
+            </div>
+            <div class="mb-3">
+                <label for="telefono">Telefono de contacto:</label>
+                <input type='text' name='telefono' placeholder='Escribir telefono' value="{{contacto.telefono}}" class="form-control rounded-0 border-0">
+            </div>
+            <button class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'layout.html' %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<div class="alert alert-success">
+    {{ message }}
+</div>
+{% endfor %} {% endif %} {% endwith %}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="">
+            <form action='/new' method="POST" class="card bg-dark text-light">
+                <div class="card-header">
+                    <h4>Agregar nuevo contacto</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <label for="nombre">Nombre de contacto:</label>
+                        <input type='text' name='nombre' style="text-transform:capitalize;" placeholder='Escribir nombre' class="form-control rounded-0 border-0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Email de contacto:</label>
+                        <input type='text' name='email' placeholder='Escribir email' class="form-control rounded-0 border-0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono">Telefono de contacto:</label>
+                        <input type='text' name='telefono' placeholder='Escribir telefono' class="form-control rounded-0 border-0">
+                    </div>
+                    <button class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h4 class="card-body p-2 bg-dark text-white rounded-2">Lista de contactos</h4>
+        <div>
+            {% for contacto in contactos %}
+
+            <div class="card mb-1 text-white bg-dark">
+                <div class="card-body">
+                    <h5>Nombre: {{ contacto.nombre }}</h5>
+                    <p>Email: {{ contacto.email }}</p>
+                    <p>Telefono: {{ contacto.telefono }}</p>
+
+                    <div class="d-flex justify-content-between">
+                        <a href='/update/{{ contacto.id }}' class="btn btn-secondary btn-sm">Editar</a>
+                        <a href='/delete/{{ contacto.id }}' class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
